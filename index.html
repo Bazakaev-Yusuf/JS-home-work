@@ -136,6 +136,29 @@
         }
       }
       console.log(onlyPositive(55));
+
+      // если все елементы массива это квадрат числа то вернуть true.
+      // если все елементы массива не являются квадратом числа, то вернуть false.
+      // если передан пустой массив, то вернуть undefined
+
+      var isSquare = function (arr) {
+        let arr2 = arr.map(Math.sqrt);
+        let arr3 = arr2.map((array) => array ** 2);
+        let num = 0;
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i] !== arr3[i]) {
+            num += 1;
+          }
+        }
+        if (arr.length === 0) {
+          return undefined;
+        } else if (num > 0) {
+          return false;
+        } else if (num === 0) {
+          return true;
+        }
+      };
+      console.log(isSquare([91, 25, 36]));
     </script>
   </body>
 </html>
