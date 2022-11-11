@@ -64,6 +64,15 @@
           .join("");
       }
       console.log(word("one two three"));
+
+      // Напишите функцию, которая проверяет, является ли заданная строка (без учета регистра) палиндромом .
+
+      function itsPalindrom(x) {
+        return (
+          x.toLowerCase("") === x.toLowerCase().split("").reverse().join("")
+        );
+      }
+      console.log(itsPalindrom(""));
     </script>
   </body>
 </html>
