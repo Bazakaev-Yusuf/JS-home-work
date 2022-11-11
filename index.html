@@ -8,157 +8,28 @@
   </head>
   <body>
     <script>
-      // //    Задача 1
-      // //    Допиши код так, чтобы в переменной positive остались только положительные числа из массива
-
-      // const array = [22, 0, -45, 1001, 8, -6, -0.1, 101, 2.5, -55555];
-      // const positive = array.filter(function (item) {
-      //   return item > 0;
-      // });
-      // // const positive = array.filter((item) => item > 0);
-      // console.log(positive);
-
-      // //  Задача 2
-
-      // // Напиши фильтр, который пропустит только те элементы (объекты), у которых свойство error равно false.
-      // // Выведи    полученный результат в консоль.
-
-      // const messages = [
-      //   { message: "hello", error: true },
-      //   { message: "javascript", error: false },
-      //   { message: "expovisiov", error: true },
-      //   { message: "react", error: true },
-      //   { message: "angular", error: false },
-      //   { message: "es6", error: false },
-      // ];
-
-      // const errorFalse = messages.filter((item) => item.error == false);
-      // console.log(errorFalse);
-
-      // // или наооборот. Я условие не до конца понял...
-
-      // const errorTrue = messages.filter((item) => item.error == true);
-      // console.log(errorTrue);
-
-      // // Задача 3*
-      // // Есть следующий массив:
-
-      // const words = ["экспо", "js", "react", "css", "angular", "vue", "html"];
-
-      // // Используя метод .map создай новый массив, где слова короче пяти символов заменены на звездочку.
-
-      // const words2 = words.map(function (obj) {
-      //   let star = "*";
-      //   if (obj.length < 5) {
-      //     return star.repeat(obj.length);
-      //   } else {
-      //     return obj;
-      //   }
-      // });
-      // console.log(words2);
-
-      // // Задача 4
-      // // Измени следующие функцию на стрелочные
-
-      // // function sendMessage(message) {
-      // //    тут какой-то большой код для отправки сообщения
-      // // }
-
-      // const sendMessage = (message) => {
-      //   // тут какой-то большой код для отправки сообщения
-      // };
-
-      // // function half(number) {
-      // //   return number / 2;
-      // // }
-
-      // const half = (number) => number / 2;
-      // console.log(half(44));
-
-      // // function showConsole() {
-      // //   console.log("Экспо");
-      // // }
-
-      // const showConsole = () => {
-      //   console.log("Экспо");
-      // };
-      // showConsole();
-
-      // // function concatWords(first, second) {
-      // //   return first + second;
-      // // }
-
-      // const concatWords = (first, second) => first + second;
-      // console.log(concatWords("wwwww", "qqqqqq"));
-
-      // // Задача 5
-      // // Измени следующие функции из стрелочных в обычные
-
-      // // const justText = () => "expo";
-
-      // function justText() {
-      //   return "expo";
-      // }
-      // console.log(justText());
-
-      // // const logging = (text) => console.log(text);
-
-      // function Logging(text) {
-      //   console.log(text);
-      // }
-      // Logging("qewqweqew");
-
-      // // const add = (x, y) => {
-      // //   const z = 3;
-
-      // //   return z * x * y;
-      // // };
-
-      // function add(x, y) {
-      //   const z = 3;
-      //   return z * x * y;
-      // }
-      // console.log(add(3, 2));
-
-      // // const onlyPositive = (number) => {
-      // //   if (number < 0) {
-      // //     return false;
-      // //   }
-
-      // //   return true;
-      // // };
-
-      // function onlyPositive(number) {
-      //   if (number < 0) {
-      //     return false;
-      //   } else {
-      //     return true;
-      //   }
-      // }
-      // console.log(onlyPositive(55));
-
       // // если все елементы массива это квадрат числа то вернуть true.
       // // если все елементы массива не являются квадратом числа, то вернуть false.
       // // если передан пустой массив, то вернуть undefined
 
-      // var isSquare = function (arr) {
-      //   let arr2 = arr.map(Math.sqrt);
-      //   let arr3 = arr2.map((array) => array ** 2);
-      //   let num = 0;
-      //   for (i = 0; i < arr.length; i++) {
-      //     if (arr[i] !== arr3[i]) {
-      //       num += 1;
-      //     }
-      //   }
-      //   if (arr.length === 0) {
-      //     return undefined;
-      //   } else if (num > 0) {
-      //     return false;
-      //   } else if (num === 0) {
-      //     return true;
-      //   }
-      // };
-      // console.log(isSquare([91, 25, 36]));
+      function isSquare(arr) {
+        let arr2 = arr.map(Math.sqrt);
+        let arr3 = arr2.map((array) => array ** 2);
+        let num = 0;
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i] !== arr3[i]) {
+            num += 1;
+          }
+        }
+        if (arr.length === 0) {
+          return undefined;
+        } else if (num > 0) {
+          return false;
+        } else if (num === 0) {
+          return true;
+        }
+      }
+      console.log(isSquare([91, 25, 36]));
 
       // 7 Kata
       // Завершите функцию, которая принимает строковый параметр и переворачивает каждое слово в строке. Все пробелы в строке должны быть сохранены.
@@ -192,7 +63,7 @@
           .filter((item) => !letter.includes(item))
           .join("");
       }
-      console.log(word("one two three, asdasdqqqqq, eeeeew"));
+      console.log(word("one two three"));
     </script>
   </body>
 </html>
