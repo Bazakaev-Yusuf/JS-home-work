@@ -35,11 +35,6 @@
       // const errorFalse = messages.filter((item) => item.error == false);
       // console.log(errorFalse);
 
-      // // или наооборот. Я условие не до конца понял...
-
-      // const errorTrue = messages.filter((item) => item.error == true);
-      // console.log(errorTrue);
-
       // // Задача 3*
       // // Есть следующий массив:
 
@@ -141,7 +136,7 @@
       // // если все елементы массива не являются квадратом числа, то вернуть false.
       // // если передан пустой массив, то вернуть undefined
 
-      // var isSquare = function (arr) {
+      // const isSquare = function (arr) {
       //   let arr2 = arr.map(Math.sqrt);
       //   let arr3 = arr2.map((array) => array ** 2);
       //   let num = 0;
@@ -175,7 +170,6 @@
         }
         return newArr.join(" ");
       }
-      console.log(reverseWords("Hello World!"));
 
       // 7 Kata
       // Ваша задача — написать функцию, которая принимает строку и возвращает новую строку, в которой удалены все гласные.
@@ -192,7 +186,6 @@
           .filter((item) => !letter.includes(item))
           .join("");
       }
-      console.log(word("one two three, asdasdqqqqq, eeeeew"));
 
       // Напишите функцию, которая проверяет, является ли заданная строка (без учета регистра) палиндромом .
 
@@ -201,7 +194,6 @@
           x.toLowerCase("") === x.toLowerCase().split("").reverse().join("")
         );
       }
-      console.log(itsPalindrom(""));
 
       // функция проверят, являются ли числа массива палиндромом, если да, то возвращает 1 в массив, иначе 0
 
@@ -224,8 +216,6 @@
         return arr3;
       }
 
-      console.log(numPalindrom([101, 2, 85, 33, 14014]));
-
       // Завершите решение так, чтобы оно возвращало сумму всех чисел, кратных 3 или 5 , меньше переданного числа. Кроме того, если число отрицательное, верните 0
       // Примечание. Если число кратно и 3, и 5, считайте его только один раз .
 
@@ -243,7 +233,6 @@
         let arrTotal = arr.reduce((acc, val) => acc + val, 0);
         return arrTotal;
       }
-      console.log(solition(2));
 
       //Нарциссическое число (или число Армстронга) — это положительное число, представляющее собой сумму собственных цифр, каждая из которых возведена в степень количества цифр в данном основании.
       //Например, возьмем 153 (3 цифры), что является самовлюбленным:
@@ -261,7 +250,6 @@
         }
         return value === sum ? true : false;
       }
-      console.log(narcissistic(371));
 
       // построить пирамиду из символов "*" высота которой будет соответствовать числу которое принимает функция.
       // например башня с 5 этажами выглядит так:
@@ -287,7 +275,6 @@
         }
         return arr;
       }
-      console.log(tower(8));
 
       //Дан массив целых чисел, найдите то, которое встречается нечетное количество раз.
 
@@ -297,8 +284,98 @@
       // [7]должен вернуть 7, потому что это происходит 1 раз (что нечетно).
       // [0]должен вернуть 0, потому что это происходит 1 раз (что нечетно).
 
-      function findNum(a) {
-        return null;
+      function findePercent(a, b) {
+        let c = a / 100;
+        if (b > a) {
+          return (b - a) / c;
+        } else {
+          return (a + b) / c;
+        }
+      }
+
+      // likes check
+      function likes(arr) {
+        if (arr.length == 0) {
+          return "no one likes this";
+        } else if (arr.length == 1) {
+          return `${arr[0]} likes this`;
+        } else if (arr.length == 2) {
+          return `${arr[0]} and ${arr[1]} like this`;
+        } else if (arr.length == 3) {
+          return `${arr[0]}, ${arr[1]} and ${arr[2]} like this`;
+        } else if (arr.length > 3) {
+          return `${arr[0]}, ${arr[1]} and ${arr.length - 2} others like this`;
+        }
+      }
+
+      // количество позиций, в которых входные строки не совпадают.
+      function hamming(a, b) {
+        arr1 = a.split("");
+        arr2 = b.split("");
+        let count = 0;
+        for (i = 0; i < arr1.length; i++) {
+          arr1[i] === arr2[i] ? (count += 0) : (count += 1);
+        }
+        return count;
+      }
+
+      //лишнее число из массива (четное среди нечетных или наоборот)
+      function findeNum(arr) {
+        const even = arr.filter((item) => item % 2 === 0);
+        const odd = arr.filter((item) => item % 2 !== 0);
+        if (even.length > odd.length) {
+          return odd[0];
+        } else {
+          return even[0];
+        }
+      }
+
+      // bouncing ball
+      function bouncingBall(h, bounce, window) {
+        let vision = 1;
+        let afterJump = h;
+        if (bounce == 1 || bounce < 0 || h == window || h < window) {
+          return -1;
+        } else {
+          for (i = 0; afterJump > window; i++) {
+            afterJump *= bounce;
+            afterJump > window ? (vision += 2) : (vision += 0);
+          }
+        }
+        return vision;
+      }
+
+      //шифровка текста
+      function encrypt(text, n) {
+        if (!text || n <= 0) return text;
+        while (n--) {
+          let result = "";
+          for (i = 1; i < text.length; i += 2) {
+            result += text[i];
+          }
+          for (j = 0; j < text.length; j += 2) {
+            result += text[j];
+          }
+          text = result;
+        }
+        return text;
+      }
+
+      //дешифровка текста
+      function decrypt(text, n) {
+        if (!text || n <= 0) return text;
+        let result = new Array(text.length);
+        while (n--) {
+          let j = 0;
+          for (let i = 1; i < result.length; i += 2) {
+            result[i] = text[j++];
+          }
+          for (let i = 0; i < result.length; i += 2) {
+            result[i] = text[j++];
+          }
+          text = result.join("");
+        }
+        return text;
       }
     </script>
   </body>
