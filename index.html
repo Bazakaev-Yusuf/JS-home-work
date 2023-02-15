@@ -276,14 +276,7 @@
         return arr;
       }
 
-      //Дан массив целых чисел, найдите то, которое встречается нечетное количество раз.
-
-      // Всегда будет только одно целое число, которое встречается нечетное количество раз.
-
-      // Примеры
-      // [7]должен вернуть 7, потому что это происходит 1 раз (что нечетно).
-      // [0]должен вернуть 0, потому что это происходит 1 раз (что нечетно).
-
+      //процентная разница от стартового числа
       function findePercent(a, b) {
         let c = a / 100;
         if (b > a) {
@@ -293,7 +286,7 @@
         }
       }
 
-      // likes check
+      // Likes check
       function likes(arr) {
         if (arr.length == 0) {
           return "no one likes this";
@@ -330,7 +323,7 @@
         }
       }
 
-      // bouncing ball
+      // Сколько раз брошенный с крыши мяч будет виден из окна (учитывая первый бросок с крыши и дальнейшие его подпрыгивания)
       function bouncingBall(h, bounce, window) {
         let vision = 1;
         let afterJump = h;
@@ -345,7 +338,7 @@
         return vision;
       }
 
-      //шифровка текста
+      //шифровка текста (сначала прибавляются нечетные символы между собой, потом четные, и все это в итоге в одну строку превращается)
       function encrypt(text, n) {
         if (!text || n <= 0) return text;
         while (n--) {
@@ -361,7 +354,7 @@
         return text;
       }
 
-      //дешифровка текста
+      //дешифровка текста из вышестоящей функции (но нужно гадать цифру 'n')
       function decrypt(text, n) {
         if (!text || n <= 0) return text;
         let result = new Array(text.length);
@@ -377,6 +370,52 @@
         }
         return text;
       }
+
+      //perimeter calc
+
+      function perimeter(arr) {
+        let total = 0;
+        let one = "";
+        let two = "";
+        arr.forEach((el) => {
+          one = el;
+          for (i = 0; i < el.length; i++) {
+            el[i] == "X" ? (total += 4) : null;
+            el[i + 1] == "X" && el[i] == "X" ? (total -= 2) : null;
+          }
+          console.log(one, two);
+          for (j = 0; j < one.length; j++) {
+            one[j] == "X" && two[j] == "X" ? (total -= 2) : null;
+          }
+          console.log(total);
+          one = "";
+          two = el;
+        });
+        return "Total land perimeter: " + total;
+      }
+
+      //проверка на наличие символов и пробелов в строке (при наличии возвращает false)
+      function alphanumeric(str) {
+        let pattern = /^[a-z\d]+$/i;
+        return pattern.test(str);
+      }
+
+      // проверка на правильный порядок и количество скобок (отк и закр).
+      function bracked(str) {
+        let open = [];
+        let close = [];
+        let result = true;
+        if (!str.length) return true;
+        for (i = 0; i < str.length; i++) {
+          str[i] == "(" ? open.push(str[i]) : close.push(str[i]);
+          close.length > open.length ? (result = false) : (result = result);
+          if (!result) return result;
+        }
+        close.length == open.length ? (result = true) : (result = false);
+        return result;
+      }
+
+      console.log(bracked("())("));
     </script>
   </body>
 </html>
